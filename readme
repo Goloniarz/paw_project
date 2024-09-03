@@ -1,0 +1,8 @@
+Należy utworzyć nową bazę danych w postgresql:
+CREATE DATABASE cars_db;
+
+Należy utworzyć nowego użytkownika z odpowiednim hasłem:
+CREATE USER new_user WITH PASSWORD 'new_password';
+
+Należy nadać użytkownikowi uprawnienia do nowo utworzonej bazy danych:
+GRANT ALL PRIVILEGES ON DATABASE cars_db TO new_user;

@@ -1,0 +1,150 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "API for managing cars",
+      "version": "1.0.0",
+      "title": "Car API"
+    },
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Cars",
+        "description": "Operations about cars"
+      }
+    ],
+    "paths": {
+      "/cars": {
+        "get": {
+          "tags": ["Cars"],
+          "summary": "Get list of all cars",
+          "responses": {
+            "200": {
+              "description": "A list of cars",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Car"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": ["Cars"],
+          "summary": "Create a new car",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "car",
+              "description": "Car object to be added",
+              "schema": {
+                "$ref": "#/definitions/Car"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Car created successfully"
+            }
+          }
+        }
+      },
+      "/cars/{car_id}": {
+        "get": {
+          "tags": ["Cars"],
+          "summary": "Get a specific car by ID",
+          "parameters": [
+            {
+              "name": "car_id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "A single car",
+              "schema": {
+                "$ref": "#/definitions/Car"
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": ["Cars"],
+          "summary": "Update an existing car",
+          "parameters": [
+            {
+              "name": "car_id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "in": "body",
+              "name": "car",
+              "description": "Car object with updated data",
+              "schema": {
+                "$ref": "#/definitions/Car"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Car updated successfully"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Cars"],
+          "summary": "Delete a car",
+          "parameters": [
+            {
+              "name": "car_id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Car deleted successfully"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Car": {
+        "type": "object",
+        "required": ["brand", "model", "price", "power", "color"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "brand": {
+            "type": "string",
+            "example": "BMW"
+          },
+          "model": {
+            "type": "string",
+            "example": "M3"
+          },
+          "price": {
+            "type": "number",
+            "example": 75000
+          },
+          "power": {
+            "type": "integer",
+            "example": 430
+          },
+          "color": {
+            "type": "string",
+            "example": "Black"
+          }
+        }
+      }
+    }
+  }
+  
