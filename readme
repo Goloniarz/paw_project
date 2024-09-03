@@ -1,3 +1,6 @@
+
+!!!!Przed uruchomieniem app.py nalezy uruchomić setup_database.py!!!!
+
 Należy utworzyć nową bazę danych w postgresql:
 CREATE DATABASE cars_db;
 
